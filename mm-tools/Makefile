@@ -3,17 +3,16 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mm-tools
 PKG_REV:=master
-PKG_VERSION:=1.0
+PKG_VERSION:=1
 PKG_RELEASE:=1
 PKG_INSTALL:=1
 
 PKG_SOURCE_URL:=https://github.com/SaifAlSubhi/mm-tools.git
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+PKG_SOURCE:=$(PKG_NAME).tar.bz2
 PKG_HASH:=a35d5b99332e0d152a33a47bf6d924165efda7f077980a7bcbd976c0312dd961
-PKG_MIRROR_HASH:=7159775aa93c7e1bb644f0f289cf3f6c5d06eff2a80a477270d093cb41bd273d
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
 PKG_FIXUP:=autoreconf
@@ -53,7 +52,7 @@ ifeq ($(CONFIG_MM_TOOLS_FLASH_LAYOUT_2M),y)
 endif
 
 define Build/Install
-	@echo "Install nothing, Ignore install error"
+	$(call Build/Compile/Default)
 endef
 
 define Package/mm-tools/install
