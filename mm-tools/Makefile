@@ -3,11 +3,10 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mm-tools
 PKG_VERSION:=1.0
-PKG_RELEASE:=1
-PKG_INSTALL:=1
+PKG_RELEASE:=$(AUTORELEASE)
 
-PKG_SOURCE_URL:=https://github.com/SaifAlSubhi/mm-tools.git
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+PKG_SOURCE_URL:=https://github.com/SaifAlSubhi/mm-tools.git
 PKG_HASH:=a35d5b99332e0d152a33a47bf6d924165efda7f077980a7bcbd976c0312dd961
 
 PKG_SOURCE_PROTO:=git
@@ -15,14 +14,14 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_VERSION)
 
 PKG_FIXUP:=autoreconf
+PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/mm-tools/Default
+define Package/mm-tools
+	TITLE:=mm-tools
 	SECTION:=utils
 	CATEGORY:=Utilities
-	TITLE:=mm-tools
-	URL:=
 	DEPENDS:=+libpthread +udev
 endef
 
@@ -31,15 +30,14 @@ mm-tools is a tool to reflash MM firmware for Avalon
 It supports AUC and IIC interface
 endef
 
-TARGET_CFLAGS += 
-TARGET_LDFLAGS += -L$(STAGING_DIR)/usr/lib
-
 define Package/mm-tools/config
 	menu "Configuration"
 	source "$(SOURCE)/Config.in"
 	endmenu
 endef
 
+TARGET_CFLAGS += 
+TARGET_LDFLAGS += -L$(STAGING_DIR)/usr/lib
 
 ifeq ($(CONFIG_MM_TOOLS_SOFT_CRC),y)
 	CONFIGURE_ARGS += --enable-soft-crc
