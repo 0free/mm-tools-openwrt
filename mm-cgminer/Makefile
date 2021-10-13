@@ -19,35 +19,35 @@ PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/mm-tools/Default
+define Package/mm-cgminer/Default
 	SECTION:=utils
 	CATEGORY:=Utilities
-	TITLE:=mm-tools
+	TITLE:=mm-cgminer
 	URL:=
 	DEPENDS:=+libpthread +udev
 endef
 
-define Package/mm-tools/description
-mm-tools is a tool to reflash MM firmware for Avalon
+define Package/mm-cgminer/description
+mm-cgminer is a tool to reflash MM firmware for Avalon
 It supports AUC and IIC interface
 endef
 
-define Package/mm-tools/config
+define Package/mm-cgminer/config
 	menu "Configuration"
 	source "$(SOURCE)/Config.in"
 	endmenu
 endef
 
-define Package/mm-tools
-	$(call Package/mm-tools/Default)
+define Package/mm-cgminer
+	$(call Package/mm-cgminer/Default)
 	TITLE+=(for Avalon)
 endef
 
-ifeq ($(CONFIG_MM_TOOLS_SOFT_CRC),y)
+ifeq ($(CONFIG_MM_CGMINER_SOFT_CRC),y)
 	CONFIGURE_ARGS += --enable-soft-crc
 endif
 
-ifeq ($(CONFIG_MM_TOOLS_FLASH_LAYOUT_2M),y)
+ifeq ($(CONFIG_MM_CGMINER_FLASH_LAYOUT_2M),y)
 	CONFIGURE_ARGS += --enable-flash-layout-2m
 endif
 
@@ -55,9 +55,9 @@ define Build/Install
 	$(call Build/Compile/Default)
 endef
 
-define Package/mm-tools/install
+define Package/mm-cgminer/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	cp $(PKG_BUILD_DIR)/$(PKG_NAME) $(1)/usr/bin
 endef
 
-$(eval $(call BuildPackage,mm-tools))
+$(eval $(call BuildPackage,mm-cgminer))
