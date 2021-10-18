@@ -1,0 +1,13 @@
+diff --git a/bitfile.cpp b/bitfile.cpp
+index 327d86e..5305778 100644
+--- a/bitfile.cpp
++++ b/bitfile.cpp
+@@ -35,8 +35,6 @@ Dmitry Teytelman [dimtey@gmail.com] 14 Jun 2006 [applied 13 Aug 2006]:
+ #include <time.h>
+ #include "bitrev.h"
+ 
+-using namespace std;
+-
+ BitFile::BitFile()
+   : length(0)
+   , buffer(0)
