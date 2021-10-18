@@ -1,14 +1,11 @@
 diff --git a/bscan_spi/Makefile b/bscan_spi/Makefile
-index e69de29..619dddb 100644
+index e69de29..55f99ee 100644
 --- /dev/null
 +++ b/bscan_spi/Makefile
-@@ -0,0 +1,57 @@
+@@ -0,0 +1,54 @@
 +
 +#
 +# Author: Xiangfu Liu
-+#
-+# This is free and unencumbered software released into the public domain.
-+# For details see the UNLICENSE file at the root of the source tree.
 +#
 +
 +all: bscan_s6_spi_isf_ext.bit
