@@ -17,9 +17,8 @@ index 2d59dda..db37967 100644
  
 +qi            ftdi    1500000 0x20b7:0x0713:
 +qijtag        ftdi    1500000 0x20b7:0x0713:FTDIJTAG:1:0x00:0x10:0x00:0x00
- ftdi          ftdi    1500000 0x0403:0x6010:                                       
- minila        ftdi     800000 0x0403:0x6010:
- ft232h        ftdi    1500000 0x0403:0x6014:                                      
+ ftdi          ftdi    1500000 0x0403:0x6010:
+ papilio       ftdi    6000000 0x0403:0x6010:
+ minila        ftdi     800000 0x0403:0x6010:                                     
 -- 
 1.8.1.2
-
