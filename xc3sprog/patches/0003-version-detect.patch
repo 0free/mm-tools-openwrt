@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 9fde713..cd720cf 100644
+index 9fde713..21a3fa5 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -18,7 +18,7 @@ IF( ${CMAKE_COMPILER_IS_GNUCXX} )
@@ -11,12 +11,8 @@ index 9fde713..cd720cf 100644
  
  pkg_check_modules(LIBFTDI REQUIRED libftdi1)
  include_directories(${LIBFTDI_INCLUDE_DIRS})
-@@ -38,12 +38,12 @@ if(EXISTS ${PROJECT_SOURCE_DIR}/.git)
-   set(VERSION_STRING "${xc3sprog_VERSION_MAJOR}.${xc3sprog_VERSION_MINOR}-git")
- else(EXISTS ${PROJECT_SOURCE_DIR}/.git)
-   FIND_PACKAGE(Subversion)
--  IF(Subversion_FOUND AND EXISTS ${PROJECT_SOURCE_DIR}/.svn)
-+  IF(Subversion_FOUND)
+@@ -41,9 +41,9 @@ else(EXISTS ${PROJECT_SOURCE_DIR}/.git)
+   IF(Subversion_FOUND AND EXISTS ${PROJECT_SOURCE_DIR}/.svn)
      Subversion_WC_INFO(${PROJECT_SOURCE_DIR} Project)
      set(VERSION_STRING "${xc3sprog_VERSION_MAJOR}.${xc3sprog_VERSION_MINOR}-svn${Project_WC_REVISION}")
 -  ELSE(Subversion_FOUND AND EXISTS ${PROJECT_SOURCE_DIR}/.svn)
