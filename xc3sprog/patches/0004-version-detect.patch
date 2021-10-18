@@ -1,7 +1,7 @@
-diff --git a/CMakeLists.txt b/CMakeLists2.txt
+diff --git a/CMakeLists.txt b/CMakeLists.txt
 index f40dfa9..cd720cf 100644
 --- a/CMakeLists.txt
-+++ b/CMakeLists2.txt
++++ b/CMakeLists.txt
 @@ -38,12 +38,12 @@ if(EXISTS ${PROJECT_SOURCE_DIR}/.git)
    set(VERSION_STRING "${xc3sprog_VERSION_MAJOR}.${xc3sprog_VERSION_MINOR}-git")
  else(EXISTS ${PROJECT_SOURCE_DIR}/.git)
