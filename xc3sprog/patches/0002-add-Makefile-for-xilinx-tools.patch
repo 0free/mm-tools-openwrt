@@ -1,7 +1,7 @@
-diff --git a/bscan_spi/Makefile b/bscan_spi/Makefile2
+diff --git a/bscan_spi/Makefile b/bscan_spi/Makefile
 index e69de29..619dddb 100644
---- a/bscan_spi/Makefile
-+++ b/bscan_spi/Makefile2
+--- /dev/null
++++ b/bscan_spi/Makefile
 @@ -0,0 +1,57 @@
 +
 +#
