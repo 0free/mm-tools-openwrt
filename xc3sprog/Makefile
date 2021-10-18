@@ -31,9 +31,11 @@ endef
 
 define Package/xc3sprog/install
 
-	$(INSTALL_DIR)		$(1)/usr/bin
-	$(INSTALL_BIN)		$(PKG_INSTALL_DIR)/usr/bin/*	$(1)/usr/bin/
-	$(CP)				$(FILES_DIR)/*					$(1)/usr/bin
+	$(INSTALL_DIR)	$(1)/usr/bin
+	$(INSTALL_DIR)	$(1)/usr/lib
+	$(INSTALL_BIN)	$(PKG_INSTALL_DIR)/usr/bin/*			$(1)/usr/bin
+	$(CP)			$(FILES_DIR)/*							$(1)/usr/bin
+	$(CP)			$(STAGING_DIR)/usr/lib/libftdi1.so.2	$(1)/usr/lib
 
 endef
 
