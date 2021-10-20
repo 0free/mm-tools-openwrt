@@ -29,6 +29,8 @@ define Package/mm-tools/config
 	source "$(SOURCE)/Config.in"
 endef
 
+TARGET_LDFLAGS += -L$(STAGING_DIR)/usr/lib
+
 mm_tools_CFLAGS = $(TARGET_CC) -fcommon
 mm_tools_CFLAGS += -lusb -lusb-1.0 -ljansson
 mm_tools_CFLAGS += -I$(PKG_BUILD_DIR)/compat/jansson-2.13.1/src
@@ -62,10 +64,10 @@ define Package/mm-tools/install
 	$(INSTALL_DIR)		$(1)/usr/lib
 
 	$(CP)		$(PKG_BUILD_DIR)/mm-tools						$(1)/usr/bin
-	$(CP)		$(STAGING_DIR)/usr/lib/libjansson.so.*			$(1)/usr/lib
-	$(CP)		$(STAGING_DIR)/usr/lib/libusb-0.1.so.*			$(1)/usr/lib
-	$(CP)		$(STAGING_DIR)/usr/lib/libusb-1.0.so.*			$(1)/usr/lib
-	$(CP)		$(STAGING_DIR)/usr/lib/libudev.so.*				$(1)/usr/lib
+#	$(CP)		$(STAGING_DIR)/usr/lib/libjansson.so.*			$(1)/usr/lib
+#	$(CP)		$(STAGING_DIR)/usr/lib/libusb-0.1.so.*			$(1)/usr/lib
+#	$(CP)		$(STAGING_DIR)/usr/lib/libusb-1.0.so.*			$(1)/usr/lib
+#	$(CP)		$(STAGING_DIR)/usr/lib/libudev.so.*				$(1)/usr/lib
 
 endef
 
