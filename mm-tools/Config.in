@@ -1,11 +1,11 @@
 menu "Configuration"
 	depends on PACKAGE_mm-tools
 
-config MM_CGMINER_SOFT_CRC
+config MM_TOOLS_SOFT_CRC
 	bool "Enable soft crc algorithm"
 	default n
 
-config MM_CGMINER_FLASH_LAYOUT_2M
+config MM_TOOLS_FLASH_LAYOUT_2M
 	bool "Enable flash layout 2m"
 	default n
 
