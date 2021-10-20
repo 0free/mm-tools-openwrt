@@ -18,10 +18,10 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/mm-tools
-	TITLE:=mm-tools
-	SECTION:=utils
-	CATEGORY:=Utilities
-	DEPENDS:=+libpthread 
+  TITLE:=mm-tools
+  SECTION:=utils
+  CATEGORY:=Utilities
+  DEPENDS:=+libpthread 
 endef
 
 define Package/mm-tools/description
@@ -54,8 +54,8 @@ define Build/Compile
 endef
 
 define Package/mm-tools/install
-  $(INSTALL_DIR)    $(1)/usr/bin
-  $(CP)             $(PKG_BUILD_DIR)/mm-tools		$(1)/usr/bin
+  $(INSTALL_DIR)  $(1)/usr/bin
+  $(CP)  $(PKG_BUILD_DIR)/mm-tools  $(1)/usr/bin
 endef
 
 $(eval $(call BuildPackage,mm-tools))
