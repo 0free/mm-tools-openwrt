@@ -1,12 +1,12 @@
 menu "Configuration"
-	depends on PACKAGE_mm-tools
+depends on PACKAGE_mm-tools
 
 config MM_TOOLS_SOFT_CRC
-	bool "Enable soft crc algorithm"
-	default n
+	bool "enable soft crc algorithm"
+	default y
 
 config MM_TOOLS_FLASH_LAYOUT_2M
-	bool "Enable flash layout 2m"
-	default n
+	bool "enable flash layout 2m"
+	default y
 
 endmenu
