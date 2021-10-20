@@ -3,7 +3,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mm-tools
 PKG_VERSION:=1.0
-PKG_RELEASE:=$(AUTORELEASE)
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=https://github.com/SaifAlSubhi/mm-tools.git
@@ -21,18 +21,15 @@ define Package/mm-tools
 	TITLE:=mm-tools
 	SECTION:=utils
 	CATEGORY:=Utilities
-	DEPENDS:=+libpthread +udev
+	DEPENDS:=+libpthread 
 endef
 
 define Package/mm-tools/description
-mm-tools is a tool to reflash MM firmware for Avalon
-It supports AUC and IIC interface
+mm-tools is a tool to reflash MM firmware for Avalon (supports AUC and IIC interface)
 endef
 
 define Package/mm-tools/config
-	menu "Configuration"
 	source "$(SOURCE)/Config.in"
-	endmenu
 endef
 
 TARGET_CFLAGS += 
@@ -46,13 +43,19 @@ ifeq ($(CONFIG_MM_TOOLS_FLASH_LAYOUT_2M),y)
 	CONFIGURE_ARGS += --enable-flash-layout-2m
 endif
 
+define Build/Configure
+	$(call Build/Configure/mm-tools)
+	(cd $(PKG_BUILD_DIR) && aclocal && libtoolize && autoreconf && automake;)
+	(cd $(PKG_BUILD_DIR) && chmod +x configure && ./configure $(CONFIGURE_ARGS);)
+endef
+
 define Build/Compile
-	$(call Build/Compile/Default)
+	$(call Build/Compile/mm-tools)
 endef
 
 define Package/mm-tools/install
   $(INSTALL_DIR)    $(1)/usr/bin
-  $(CP)             $(PKG_BUILD_DIR)/$(PKG_NAME)		$(1)/usr/bin
+  $(CP)             $(PKG_BUILD_DIR)/mm-tools		$(1)/usr/bin
 endef
 
 $(eval $(call BuildPackage,mm-tools))
