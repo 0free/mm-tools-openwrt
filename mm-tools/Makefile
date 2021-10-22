@@ -8,6 +8,7 @@ PKG_RELEASE:=1
 PKG_SOURCE:=$(PKG_NAME).tar.bz2
 PKG_SOURCE_URL:=https://github.com/SaifAlSubhi/mm-tools.git
 PKG_HASH:=6261dd7c6582804f04b1f7d075c1e4cfcdc05655dc37ce3164dd0d86764fa0fd
+PKG_MIRROR_HASH:=34e8b179b42b041aefd3663c628d6427be8d829fd7f8d3a4c7c9ee2af00454b6
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_VERSION)
@@ -18,7 +19,7 @@ define Package/mm-tools
 	TITLE:=mm-tools
 	SECTION:=utils
 	CATEGORY:=Utilities
-	DEPENDS:=+libpthread +udev
+	DEPENDS:= +libpthread +udev
 endef
 
 define Package/mm-tools/description
