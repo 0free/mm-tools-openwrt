@@ -7,7 +7,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME).tar.bz2
 PKG_SOURCE_URL:=https://github.com/SaifAlSubhi/mm-tools.git
-PKG_HASH:=a35d5b99332e0d152a33a47bf6d924165efda7f077980a7bcbd976c0312dd961
+PKG_HASH:=6261dd7c6582804f04b1f7d075c1e4cfcdc05655dc37ce3164dd0d86764fa0fd
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_VERSION)
@@ -18,7 +18,7 @@ define Package/mm-tools
 	TITLE:=mm-tools
 	SECTION:=utils
 	CATEGORY:=Utilities
-	DEPENDS:= +libpthread +udev
+	DEPENDS:=+libpthread +udev
 endef
 
 define Package/mm-tools/description
@@ -55,7 +55,6 @@ define Build/Compile
 	`pkg-config --cflags libusb-1.0` \
 	$(mm_tools_SOURCES) -o mm-tools \
 	;)
-	
 endef
 
 define Package/mm-tools/install
@@ -64,8 +63,8 @@ define Package/mm-tools/install
 	$(INSTALL_DIR)		$(1)/usr/lib
 
 	$(CP)		$(PKG_BUILD_DIR)/mm-tools						$(1)/usr/bin
-#	$(CP)		$(STAGING_DIR)/usr/lib/libjansson.so.*			$(1)/usr/lib
-#	$(CP)		$(STAGING_DIR)/usr/lib/libusb-0.1.so.*			$(1)/usr/lib
+	$(CP)		$(STAGING_DIR)/usr/lib/libjansson.so.*			$(1)/usr/lib
+	$(CP)		$(STAGING_DIR)/usr/lib/libusb-0.1.so.*			$(1)/usr/lib
 #	$(CP)		$(STAGING_DIR)/usr/lib/libusb-1.0.so.*			$(1)/usr/lib
 #	$(CP)		$(STAGING_DIR)/usr/lib/libudev.so.*				$(1)/usr/lib
 
